@@ -1,11 +1,11 @@
 import React from 'react';
 import axios from 'axios';
-import { HashRouter as Router, Route, Routes } from 'react-router-dom';
+import { HashRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import './App.css';
-import '../Admin/Admin';
-import '../Checkout/Checkout';
-import '../Customerinfo/Customerinfo';
-import '../Select/Select';
+import Admin from'../Admin/Admin';
+import Checkout from '../Checkout/Checkout';
+import Customerinfo from '../Customerinfo/Customerinfo';
+import Select from '../Select/Select';
 
 function App() {
 
@@ -18,7 +18,7 @@ function App() {
         <Routes>
           <Route path="/" element={Select} />
           <Route path="/customerinfo" element={Customerinfo} />
-          <Route path="/checkout" element={checkout} />
+          <Route path="/checkout" element={Checkout} />
           <Route path="/admin" element={Admin} />
         </Routes>
         <img src='images/pizza_photo.png' />
