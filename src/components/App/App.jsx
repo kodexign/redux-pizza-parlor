@@ -14,15 +14,16 @@ function App() {
       <header className='App-header'>
         <h1 className='App-title'>Prime Pizza</h1>
       </header>
-      <Routes>
-        <Route path="/" element={Select} />
-        <Route path="/customerinfo" element={Customerinfo} />
-        <Route path="/checkout" element={checkout} />
-        <Route path="/admin" element={Admin} />
-      </Routes>
-      <img src='images/pizza_photo.png' />
-      <p>Pizza is great.</p>
-  
+      <Router>
+        <Routes>
+          <Route path="/" element={Select} />
+          <Route path="/customerinfo" element={Customerinfo} />
+          <Route path="/checkout" element={checkout} />
+          <Route path="/admin" element={Admin} />
+        </Routes>
+        <img src='images/pizza_photo.png' />
+        <p>Pizza is great.</p>
+      </Router>
     </div>
   );
 }
