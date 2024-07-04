@@ -1,6 +1,11 @@
 import React from 'react';
 import axios from 'axios';
+import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
+import '../Admin/Admin';
+import '../Checkout/Checkout';
+import '../Customerinfo/Customerinfo';
+import '../Select/Select';
 
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import SelectPizza from '../Select/Select';
