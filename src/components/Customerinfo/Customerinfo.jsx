@@ -5,6 +5,9 @@ import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 import { useState } from 'react';
 
+//still need to add delivery and pick up options
+//total cost of the order should appear in the top right of this page.
+
 function CustomerInfo() {
 
     const history = useHistory(); // maybe need for something?
@@ -64,7 +67,7 @@ function CustomerInfo() {
                 onChange={(event) => setZip(event.target.value)}
                 placeholder='zipcode' />
                <br />
-                <Link to = "/checkout"><button>Checkout</button></Link>
+                <Link to = "/checkout"><button>NEXT</button></Link>
             </form>
 
         </div>
