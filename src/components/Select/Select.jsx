@@ -49,7 +49,7 @@ const SelectPizza = () => {
       </div>
       <div className="cart-summary">
         <h3>Total: ${totalPrice}</h3>
-        <Link to="/checkout"><button>Next</button></Link>
+        <Link to="/customerinfo"><button>Next</button></Link>
       </div>
     </div>
   );
