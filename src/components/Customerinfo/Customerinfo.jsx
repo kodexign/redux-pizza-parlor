@@ -7,9 +7,9 @@ import { useState } from 'react';
 
 function CustomerInfo() {
 
-    const history = useHistory();
+    const history = useHistory(); // maybe need for something?
     const dispatch = useDispatch();
-    const checkout = useSelector(store => store.cart);
+    const checkout = useSelector(store => store.cart);// maybe need for something??
     const cart = useSelector(store => store.cart);
     const totalPrice = cart.reduce((total, item) => total + parseFloat(item.price), 0);
 
@@ -30,7 +30,7 @@ function CustomerInfo() {
             return;
         }
         dispatch({
-            type: ADD_CUSTOMER, payload: {customerName, street, city, zip},
+            type: 'ADD_CUSTOMER', payload: {customerName, street, city, zip},
         });
         setCustomerName("");
         setStreet("");
