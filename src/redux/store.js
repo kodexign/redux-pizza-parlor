@@ -21,13 +21,23 @@ const cart = (state = [], action) => {
     return [];
   }
   return state;
+
 };
+
+const customerData = (state = [], action) => {
+  if (action.type === 'ADD_CUSTOMER'){
+    console.log('Customer info added');
+    return [...state,, action.payload];
+  }
+  return state;
+}
 
 const store = createStore(
   combineReducers({
     //someReducer, // 👈 Be sure to replace this, too!
     pizzas,
-    cart
+    cart,
+    customerData,
   }),
   applyMiddleware(logger),
 );

@@ -3,6 +3,7 @@ import axios from 'axios';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import SelectPizza from '../Select/Select';
 import Checkout from '../Checkout/Checkout';
+import CustomerInfo from '../Customerinfo/Customerinfo';
 
 
 function App() {
@@ -24,7 +25,8 @@ function App() {
           <Route exact path="/">
             <SelectPizza />
           </Route>
-          <Route exact path="/customerinfo">            
+          <Route exact path="/customerinfo">  
+          <CustomerInfo />          
           </Route>
           <Route exact path="/checkout">            
             <Checkout />
