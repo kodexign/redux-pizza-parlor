@@ -1,12 +1,9 @@
 import React from 'react';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
-import './App.css';
-import '../Admin/Admin';
-import '../Customerinfo/Customerinfo';
-
-
 import SelectPizza from '../Select/Select';
 import Checkout from '../Checkout/Checkout';
+import CustomerInfo from '../Customerinfo/Customerinfo';
+
 
 function App() {
   return (
@@ -32,6 +29,9 @@ function App() {
           </ul>
           <Route exact path="/">
             <SelectPizza />
+          </Route>
+          <Route exact path="/customerinfo">  
+          <CustomerInfo />          
           </Route>
           <Route exact path="/checkout">            
             <Checkout />
