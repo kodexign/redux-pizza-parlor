@@ -2,7 +2,6 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
-
 const Checkout = () => {
   const dispatch = useDispatch();
   const history = useHistory();
@@ -15,16 +14,15 @@ const Checkout = () => {
       street_address: customer.street,
       city: customer.city,
       zip: customer.zip,
-      type: customer.orderType,
+      type: customer.deliveryMethod,
       total: cart.reduce((total, item) => total + parseFloat(item.price), 0),
       pizzas: cart.map(item => ({ id: item.id, quantity: 1 })),
   };
-
   axios.post('/api/order', order)
       .then(response => {
         console.log('Order posted successfully', response);
         dispatch({ type: 'CLEAR_CART' });
-        dispatch({ type: 'CLEAR_CUSTOMER' }); 
+        dispatch({ type: 'CLEAR_CUSTOMER_DATA' });
         history.push('/');
       })
       .catch(error => {
@@ -32,7 +30,6 @@ const Checkout = () => {
         alert('There was an error processing your order. Please try again.');
       });
   };
-
   return (
     <div>
       <h2>Checkout</h2>
@@ -44,5 +41,4 @@ const Checkout = () => {
     </div>
   );
 }
-
 export default Checkout;
