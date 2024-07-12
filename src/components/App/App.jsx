@@ -3,7 +3,10 @@ import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import SelectPizza from '../Select/Select';
 import Checkout from '../Checkout/Checkout';
 import CustomerInfo from '../Customerinfo/Customerinfo';
+
 import './App.css';
+import Admin from '../Admin/Admin';
+
 
 function App() {
   return (
@@ -18,10 +21,10 @@ function App() {
               <Link to="/">Select Pizza</Link>
             </li>
             <li>
-              <Link to="/checkout">Checkout</Link>
+              <Link to="/customerinfo">Customer Info</Link>
             </li>
             <li>
-              <Link to="/customerinfo">Customer Info</Link>
+              <Link to="/checkout">Checkout</Link>
             </li>
             <li>
               <Link to="/admin">Admin</Link>
@@ -30,11 +33,14 @@ function App() {
           <Route exact path="/">
             <SelectPizza />
           </Route>
-          <Route exact path="/customerinfo">  
-          <CustomerInfo />          
+          <Route exact path="/customerinfo">
+            <CustomerInfo />
           </Route>
-          <Route exact path="/checkout">            
+          <Route exact path="/checkout">
             <Checkout />
+          </Route>
+          <Route exact path="/admin">
+            <Admin />
           </Route>
         </div>
       </Router>
