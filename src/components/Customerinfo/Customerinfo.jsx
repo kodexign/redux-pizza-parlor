@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 import { useState } from 'react';
@@ -18,10 +17,10 @@ function CustomerInfo() {
     const [city, setCity] = useState('');
     const [zip, setZip] = useState('');
     const [deliveryMethod, setDeliveryMethod] = useState('pickup');
-   
-    const handleSubmit = (event) =>{
+
+    const handleSubmit = (event) => {
         event.preventDefault();
-        if(
+        if (
             customerName === "" ||
             street === "" ||
             city === "" ||
@@ -31,7 +30,7 @@ function CustomerInfo() {
             return;
         }
         dispatch({
-            type: ADD_CUSTOMER, payload: {customerName, street, city, zip},
+            type: ADD_CUSTOMER, payload: { customerName, street, city, zip },
         });
         setCustomerName("");
         setStreet("");
@@ -40,7 +39,7 @@ function CustomerInfo() {
         setDeliveryMethod('pickup')
     };
 
-    return(
+    return (
         <div className='customer-info'>
             <div>
                 <header>
@@ -48,25 +47,25 @@ function CustomerInfo() {
                 </header>
                 <p> Total: {totalPrice}</p>
             </div>
-        <div className='form'>
-            <form onSubmit={handleSubmit}>
-                <input type="text" value={customerName}
-                onChange={(event) => setCustomerName(event.target.value)}
-                placeholder='Customer Name' />
-                <br/> 
-                <input type="text" value={street}
-                onChange={(event) => setStreet(event.target.value)}
-                placeholder='street' />
-                <br /> 
-                <input type="text" value={city}
-                onChange={(event) => setCity(event.target.value)}
-                placeholder='city' />
-                <br /> 
-                <input type="text" value={zip}
-                onChange={(event) => setZip(event.target.value)}
-                placeholder='zipcode' />
-               <br />
-               <br />
+            <div className='form'>
+                <form onSubmit={handleSubmit}>
+                    <input type="text" value={customerName}
+                        onChange={(event) => setCustomerName(event.target.value)}
+                        placeholder='Customer Name' />
+                    <br />
+                    <input type="text" value={street}
+                        onChange={(event) => setStreet(event.target.value)}
+                        placeholder='street' />
+                    <br />
+                    <input type="text" value={city}
+                        onChange={(event) => setCity(event.target.value)}
+                        placeholder='city' />
+                    <br />
+                    <input type="text" value={zip}
+                        onChange={(event) => setZip(event.target.value)}
+                        placeholder='zipcode' />
+                    <br />
+                    <br />
                     <div>
                         <label>
                             <input
@@ -91,13 +90,13 @@ function CustomerInfo() {
                     <Link to="/checkout"><button>Checkout</button></Link>
                 </form>
 
-        </div>
+            </div>
 
         </div>
 
     )
 
 }
-        
- 
+
+
 export default CustomerInfo;
