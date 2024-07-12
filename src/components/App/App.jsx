@@ -3,7 +3,7 @@ import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import SelectPizza from '../Select/Select';
 import Checkout from '../Checkout/Checkout';
 import CustomerInfo from '../Customerinfo/Customerinfo';
-
+import './App.css';
 
 function App() {
   return (
