@@ -21,3 +21,7 @@ button {
   background-color: rgb(205, 119, 119);
   font-size: 1em;
 }
+
+ul {
+  list-style: none;
+}
