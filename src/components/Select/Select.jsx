@@ -37,7 +37,7 @@ const SelectPizza = () => {
       <div className="pizza-list">
         {pizzas.map(pizza => (
           <div key={pizza.id} className="pizza-item">
-            <h3>{pizza.name}</h3>
+            <h4>{pizza.name}</h4>
             <p>{pizza.description}</p>
             <p>${parseFloat(pizza.price).toFixed(2)}</p>
             {cart.find(item => item.id === pizza.id) ? (
@@ -49,7 +49,8 @@ const SelectPizza = () => {
         ))}
       </div>
       <div className="cart-summary">
-        <h3>Total: ${totalPrice}</h3>
+       <h3>Total: ${totalPrice}</h3>
+       <br /> 
         <Link to="/customerinfo"><button>Next</button></Link>
       </div>
     </div>

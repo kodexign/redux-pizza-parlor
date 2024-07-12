@@ -1,0 +1,15 @@
+
+h3{
+    
+    font-size: 2em;
+    font-weight: bold;
+    background-color: white;
+    width: max-content;
+    margin: auto;
+    border-style:outset;
+    border-color:  #a64141;
+  }
+form{
+    padding: 10px;
+    margin: 10px;
+}

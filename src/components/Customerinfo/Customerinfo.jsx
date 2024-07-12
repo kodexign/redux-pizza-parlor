@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import './Customerinfo.css';
 
 function CustomerInfo() {
     const history = useHistory();
@@ -32,7 +33,9 @@ function CustomerInfo() {
                 <header>
                     <h2> Step 2: Customer Information </h2>
                 </header>
-                <p> Total: ${totalPrice}</p>
+                <div className='total-box'>
+                    <h3 className='total'> Total: ${totalPrice}</h3>
+            </div>
             </div>
             <div className='form'>
                 <form onSubmit={handleSubmit}>
