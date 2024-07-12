@@ -1,16 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
-import { useState } from 'react';
 
 function CustomerInfo() {
-
     const history = useHistory();
     const dispatch = useDispatch();
-    const checkout = useSelector(store => store.cart);
     const cart = useSelector(store => store.cart);
-    const totalPrice = cart.reduce((total, item) => total + parseFloat(item.price), 0);
+    const totalPrice = cart.reduce((total, item) => total + parseFloat(item.price), 0).toFixed(2);
 
     const [customerName, setCustomerName] = useState('');
     const [street, setStreet] = useState('');
@@ -20,32 +16,23 @@ function CustomerInfo() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        if (
-            customerName === "" ||
-            street === "" ||
-            city === "" ||
-            !zip
-        ) {
+        if (customerName === "" || street === "" || city === "" || !zip) {
             alert("Empty field, Please complete all fields");
             return;
         }
         dispatch({
-            type: ADD_CUSTOMER, payload: { customerName, street, city, zip },
+            type: 'ADD_CUSTOMER', payload: { customerName, street, city, zip, deliveryMethod },
         });
-        setCustomerName("");
-        setStreet("");
-        setCity("");
-        setZip("");
-        setDeliveryMethod('pickup')
+        history.push('/checkout');
     };
 
     return (
         <div className='customer-info'>
             <div>
                 <header>
-                    <h1> Customer Information </h1>
+                    <h2> Step 2: Customer Information </h2>
                 </header>
-                <p> Total: {totalPrice}</p>
+                <p> Total: ${totalPrice}</p>
             </div>
             <div className='form'>
                 <form onSubmit={handleSubmit}>
@@ -87,16 +74,11 @@ function CustomerInfo() {
                         </label>
                     </div>
                     <br />
-                    <Link to="/checkout"><button>Checkout</button></Link>
+                    <button type="submit">Next</button>
                 </form>
-
             </div>
-
         </div>
-
     )
-
 }
-
 
 export default CustomerInfo;

@@ -29,7 +29,7 @@ const SelectPizza = () => {
     dispatch({ type: 'REMOVE_FROM_CART', payload: pizzaId });
   };
 
-  const totalPrice = cart.reduce((total, item) => total + parseFloat(item.price), 0);
+  const totalPrice = cart.reduce((total, item) => total + parseFloat(item.price), 0).toFixed(2);
 
   return (
     <div>
@@ -39,7 +39,7 @@ const SelectPizza = () => {
           <div key={pizza.id} className="pizza-item">
             <h3>{pizza.name}</h3>
             <p>{pizza.description}</p>
-            <p>${pizza.price}</p>
+            <p>${parseFloat(pizza.price).toFixed(2)}</p>
             {cart.find(item => item.id === pizza.id) ? (
               <button onClick={() => removePizzaFromCart(pizza.id)}>Remove</button>
             ) : (
@@ -50,7 +50,7 @@ const SelectPizza = () => {
       </div>
       <div className="cart-summary">
         <h3>Total: ${totalPrice}</h3>
-        <Link to="/Customerinfo"><button>Next</button></Link>
+        <Link to="/customerinfo"><button>Next</button></Link>
       </div>
     </div>
   );
