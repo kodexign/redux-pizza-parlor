@@ -37,6 +37,7 @@ const Checkout = () => {
         {cart.map((item, index) => <li key={index}>{item.name}: ${item.price}</li>)}
       </ul>
       <h3>Total: ${cart.reduce((total, item) => total + parseFloat(item.price), 0).toFixed(2)}</h3>
+      <br />
       <button onClick={handleCheckout}>Checkout</button>
     </div>
   );
