@@ -5,28 +5,37 @@ import Checkout from '../Checkout/Checkout';
 import CustomerInfo from '../Customerinfo/Customerinfo';
 import Admin from '../Admin/Admin';
 
+import './App.css';
+import { AppBar, Toolbar, Container, Box, Button } from '@mui/material';
+import { styled } from '@mui/system';
+
+const NavButton = styled(Button)({
+  borderRadius: '20px',
+  padding: '10px 20px',
+  backgroundColor: '#FFA500',
+  color: 'white',
+  '&:hover': {
+    backgroundColor: '#FF8C00',
+  },
+  margin: '0 5px',
+});
+
 function App() {
   return (
-    <div className='App'>
-      <header className='App-header'>
-        <h1 className='App-title'>Prime Pizza</h1>
-      </header>
+    <div className="App">
       <Router>
-        <div>
-          <ul className="nav">
-            <li>
-              <Link to="/">Select Pizza</Link>
-            </li>
-            <li>
-              <Link to="/customerinfo">Customer Info</Link>
-            </li>
-            <li>
-              <Link to="/checkout">Checkout</Link>
-            </li>
-            <li>
-              <Link to="/admin">Admin</Link>
-            </li>
-          </ul>
+        <AppBar position="static" style={{ backgroundColor: '#404040', marginBottom: '20px' }}>
+          <Toolbar className="App-toolbar">
+            <img src="/images/primepizza.png" alt="Prime Pizza" className="App-logo" />
+            <Box className="App-nav" display="flex" justifyContent="center">
+              <NavButton component={Link} to="/">Select Pizza</NavButton>
+              <NavButton component={Link} to="/customerinfo">Customer Info</NavButton>
+              <NavButton component={Link} to="/checkout">Checkout</NavButton>
+              <NavButton component={Link} to="/admin">Admin</NavButton>
+            </Box>
+          </Toolbar>
+        </AppBar>
+        <Container>
           <Route exact path="/">
             <SelectPizza />
           </Route>
@@ -39,7 +48,7 @@ function App() {
           <Route exact path="/admin">
             <Admin />
           </Route>
-        </div>
+        </Container>
       </Router>
     </div>
   );

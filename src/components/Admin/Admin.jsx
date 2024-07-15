@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
+import { Container, Typography, Table, TableBody, TableCell, TableHead, TableRow, Paper, TableContainer } from '@mui/material';
+import { styled } from '@mui/system';
+
 const Admin = () => {
   const [orders, setOrders] = useState([]);
 
@@ -15,30 +18,49 @@ const Admin = () => {
       });
   }, []);
 
+  const StyledTableCell = styled(TableCell)({
+    backgroundColor: '#FFA500',
+    color: '#FFFFFF',
+    fontWeight: 'bold',
+  });
+  
+  const StyledTableRow = styled(TableRow)({
+    '&:nth-of-type(odd)': {
+      backgroundColor: '#F5F5F5',
+    },
+    '&:last-child td, &:last-child th': {
+      border: 0,
+    },
+  });
+  
   return (
-    <div>
-      <h2>Admin - Orders</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Time order placed</th>
-            <th>Type</th>
-            <th>Total</th>
-          </tr>
-        </thead>
-        <tbody>
-          {orders.map(order => (
-            <tr key={order.id}>
-              <td>{order.customer_name}</td>
-              <td>{new Date(order.time).toLocaleString()}</td>
-              <td>{order.type}</td>
-              <td>${parseFloat(order.total).toFixed(2)}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+    <Container>
+      <Typography variant="h4" component="h2" gutterBottom>
+        Admin - Orders
+      </Typography>
+      <TableContainer component={Paper}>
+        <Table>
+          <TableHead>
+            <TableRow>
+              <StyledTableCell>Name</StyledTableCell>
+              <StyledTableCell>Time order placed</StyledTableCell>
+              <StyledTableCell>Type</StyledTableCell>
+              <StyledTableCell>Total</StyledTableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {orders.map(order => (
+              <StyledTableRow key={order.id}>
+                <TableCell>{order.customer_name}</TableCell>
+                <TableCell>{new Date(order.time).toLocaleString()}</TableCell>
+                <TableCell>{order.type}</TableCell>
+                <TableCell>${parseFloat(order.total).toFixed(2)}</TableCell>
+              </StyledTableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </Container>
   );
 };
 
