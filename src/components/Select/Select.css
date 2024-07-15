@@ -1,26 +1,29 @@
 .pizza-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
-  padding: 40px;
-  margin: 10px;
+  justify-content: space-around;
 }
 
 .pizza-item {
-  border: 4px outset #a64141;
-  padding: 20px;
-  border-radius: 10px;
-  text-align: center;
-  width: 200px;
-  
+  margin: 10px;
+  flex: 0 0 30%;
 }
 
-h4{
-  background-color: rgba(211, 182, 182, 0.959);
-  border-style: outset;
-  font-size: larger;
-  
-p{
-  background-color: rgb(255, 254, 254);
-  border-style:ridge;
+.cart-summary {
+  margin-top: 20px;
+  text-align: right;
+}
+.pizza-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.pizza-card-content {
+  flex-grow: 1;
+}
+
+.pizza-card-actions {
+  margin-top: auto;
 }

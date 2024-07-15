@@ -1,34 +1,32 @@
 .App {
   text-align: center;
-  background-color: #dccccc;
-  margin: 10px;
-  padding: 10px;
+  background-color: #f7f7f7;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-.App-header {
-  background-color: #a64141;
-  height: 70px;
+.App-logo {
+  height: 140px;
+  margin: 0 auto;
+  margin-top: 10px;
+  display: block;
+  border-radius: 40px;
+
+}
+
+.App-toolbar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.App-nav {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.container {
   padding: 20px;
-  color: rgb(249, 235, 235);
-  margin-bottom: 20px;
-}
-
-.App-title {
-  font-size: 3em;
-  margin: 10px;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  
-}
-button {
-  background-color: rgb(205, 119, 119);
-  font-size: 1em
-  
-}
-
-ul {
-  list-style: none;
-}
-
-h2{
-  color: rgb(36, 10, 10);
+  flex-grow: 1;
 }
